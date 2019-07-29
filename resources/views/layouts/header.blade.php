@@ -1,7 +1,7 @@
 <div id="navbar" class="navbar navbar-default ace-save-state" style="background:#2e6da4">
 	<div class="navbar-container ace-save-state" id="navbar-container">
 		<div class="navbar-header pull-left">
-			<a href="/index" class="navbar-brand" style="color:#white">
+			<a href="/" class="navbar-brand" style="color:#white">
 				<small>
 					<i class="fa fa-leaf"></i>
 					Example App
