@@ -1,23 +1,63 @@
-<header>
-	<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-		&nbsp;
-		&nbsp;
-	  	<a href="/home" class="navbar-brand no-padding-top no-padding-bottom" style="color:white">
-			<i class="fa fa-leaf"></i>
-			Example Apps
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-		    <span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-			      	<a class="nav-link" href="/login">LOGIN</a>
-			    </li>
-			    <li class="nav-item">
-			      	<a class="nav-link" href="/register">REGISTER</a>
-			    </li>
-			</ul>
+<div id="navbar" class="navbar navbar-default ace-save-state" style="background:#2e6da4">
+	<div class="navbar-container ace-save-state" id="navbar-container">
+		<div class="navbar-header pull-left">
+			<a href="/index" class="navbar-brand" style="color:#white">
+				<small>
+					<i class="fa fa-leaf"></i>
+					Example App
+				</small>
+			</a>
 		</div>
-	</nav>
-</header>
+		<div class="navbar-header pull-right" role="navigation">
+			<ul class="nav ace-nav">
+				@guest
+					<li class="nav-item">
+						<a class="nav-link" href="{{ route('login') }}" style="color:white; background-color:#2e6da4;"><b>{{ __('Login') }}</b></a>
+					</li>
+					@if (Route::has('register'))
+						<li class="nav-item">
+							<a class="nav-link" href="{{ route('register') }}" style="color:white; background-color:#2e6da4;"><b>{{ __('Register') }}</b></a>
+						</li>
+					@endif
+				@else
+					<li class="light-blue dropdown-modal">
+						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="background-color:#2e6da4;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><b>
+							{{ Auth::user()->name }} </b><span class="caret"></span>
+						</a>
+
+						<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+							<li>
+								<a href="#">
+									<i class="ace-icon fa fa-cog"></i>
+									Settings
+								</a>
+							</li>
+
+							<li>
+								<a href="profile.html">
+									<i class="ace-icon fa fa-user"></i>
+									Profile
+								</a>
+							</li>
+
+							<li class="divider"></li>
+
+							<li>
+								<a href="http://secondo.localhost:90/logout" onclick="event.preventDefault();
+                                 	document.getElementById('logout-form').submit();" class="dropdown-item">
+                                 	<i class="ace-icon fa fa-power-off"></i>
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+								<div></div>
+							</li>
+						</ul>
+					</li>
+				@endguest
+			</ul><!-- /.ace-nav -->
+		</div>
+	</div><!-- /.navbar-container -->
+</div>
+

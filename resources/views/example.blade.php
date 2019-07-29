@@ -13,30 +13,30 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="item active">
                 <img src="/assets/images/Poster/1.jpg" style="width:100%;">
             </div>
 
-            <div class="carousel-item">
+            <div class="item">
                 <img src="/assets/images/Poster/2.jpg" style="width:100%;">
             </div>
 
-            <div class="carousel-item">
+            <div class="item">
                 <img src="/assets/images/Poster/3.jpg" style="width:100%;">
             </div>
 
-            <div class="carousel-item">
+            <div class="item">
                 <img src="/assets/images/Poster/4.jpg" style="width:100%;">
             </div>
         </div>
 
         <!-- Left and right controls -->
-        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-            <span class="carousel-control-next-icon"></span>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-            <span class="carousel-control-next-icon"></span>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
         </a>
     </div>
