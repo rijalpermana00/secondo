@@ -1,0 +1,44 @@
+@extends('layout')
+
+@section('content') 
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/assets/images/Poster/1.jpg" style="width:100%;">
+            </div>
+
+            <div class="carousel-item">
+                <img src="/assets/images/Poster/2.jpg" style="width:100%;">
+            </div>
+
+            <div class="carousel-item">
+                <img src="/assets/images/Poster/3.jpg" style="width:100%;">
+            </div>
+
+            <div class="carousel-item">
+                <img src="/assets/images/Poster/4.jpg" style="width:100%;">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+            <span class="carousel-control-next-icon"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+@endsection
