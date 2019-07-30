@@ -3,7 +3,7 @@
 		<div class="footer-content">
 			<span class="bigger-120">
 				<span class="orange bolder">Example</span>
-				Web Application © 2019
+				<span class="blue">Web Application © 2019</span>
 			</span>
 
 			&nbsp; &nbsp;
