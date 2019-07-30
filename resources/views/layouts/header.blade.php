@@ -19,7 +19,7 @@
 							<a class="nav-link" href="{{ route('register') }}" style="color:white; background-color:#2e6da4;"><b>{{ __('Register') }}</b></a>
 						</li>
 					@endif
-				@else
+					@else
 					<li class="light-blue dropdown-modal">
 						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="background-color:#2e6da4;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><b>
 							{{ Auth::user()->name }} </b><span class="caret"></span>

@@ -10,7 +10,6 @@
             <div class="main-content-inner">
                 <div class="page-content">
                     <br>
-                    <br>
                     @yield('content')
                 
                 </div>
@@ -20,5 +19,6 @@
     </div>
     @include('layouts.jsindex')
 </body>
+
 </html>
 
