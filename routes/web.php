@@ -15,10 +15,13 @@ Route::get('/', function () {
     return view('example');
 });
 
-Route::get('/index', function () {
-    return view('index');
-});
+// Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('posts/createpost', 'PostsController@createpost')->name('post.createpost');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('posts', 'PostsController');
+

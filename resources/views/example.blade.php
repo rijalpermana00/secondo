@@ -46,7 +46,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-sm-4">
-                    <h1 class="text-center heading-pad"><a href="/index" class="header-default" style="color:white;"><img src="/assets/images/icons/group.svg" alt="Collect" width="72" height="72"> Our Team</a></h1>
+                    <h1 class="text-center heading-pad"><a href="posts/createpost" class="header-default" style="color:white;"><img src="/assets/images/icons/group.svg" alt="Collect" width="72" height="72"> Our Team</a></h1>
                     <div>See the People Behind the Scene.</div>
                 </div>
 
@@ -75,92 +75,7 @@
                     </div>
                     <div class="caption">
                         <h5>
-                            <a href="https://www.itb.ac.id/news/read/57184/home/mengenalkan-sains-dan-profesi-pada-anak">Mengenalkan Sains dan Profesi pada Anak</a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-md-3 col-xs-12">
-                <div class="boxes-15" style="height:290px;">
-                    <div class="thumbnail">
-                        <img src="/assets/images/gallery/image-2.jpg" class="img-responsive" alt="Orasi Ilmiah Prof. Suhardi, Kontribusi Komputasi Layanan Service terhadap Transformasi Digital" style="width:240px; height:150px;">
-                    </div>
-                    <div class="caption">
-                        <h5>
-                            <a href="https://www.itb.ac.id/news/read/57183/home/orasi-ilmiah-prof-suhardi-kontribusi-komputasi-layanan-service-terhadap-transformasi-digital">Orasi Ilmiah Prof. Suhardi, Kontribusi Komputasi Layanan Service terhadap Transformasi Digital</a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-md-3 col-xs-12">
-                <div class="boxes-15" style="height:290px;">
-                    <div class="thumbnail">
-                        <img src="/assets/images/gallery/image-3.jpg" class="img-responsive" alt="ITB Selenggarakan Chemistry Summer School 2019" style="width:240px; height:150px;">
-                    </div>
-                    <div class="caption">
-                        <h5>
-                            <a href="https://www.itb.ac.id/news/read/57182/home/itb-selenggarakan-chemistry-summer-school-2019">ITB Selenggarakan Chemistry Summer School 2019</a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-md-3 col-xs-12">
-                <div class="boxes-15" style="height:290px;">
-                    <div class="thumbnail">
-                        <img src="/assets/images/gallery/image-4.jpg" alt="Desain Pesawat untuk Misi Evakuasi, Tim Mahasiswa ITB Juara Lomba UAV Aerofest 2019" style="width:240px; height:150px;">
-                    </div>
-                    <div class="caption">
-                        <h5>
-                            <a href="https://www.itb.ac.id/news/read/57181/home/desain-pesawat-untuk-misi-evakuasi-tim-mahasiswa-itb-juara-lomba-uav-aerofest-2019">Desain Pesawat untuk Misi Evakuasi, Tim Mahasiswa ITB Juara Lomba UAV Aerofest 2019</a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3 col-md-3 col-xs-12">
-                <div class="boxes-15" style="height:290px;">
-                    <div class="thumbnail">
-                        <img src="/assets/images/gallery/image-1.jpg" class="img-responsive" alt="Mengenalkan Sains dan Profesi pada Anak" style="width:240px; height:150px;">
-                    </div>
-                    <div class="caption">
-                        <h5>
-                            <a href="https://www.itb.ac.id/news/read/57184/home/mengenalkan-sains-dan-profesi-pada-anak">Mengenalkan Sains dan Profesi pada Anak</a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-md-3 col-xs-12">
-                <div class="boxes-15" style="height:290px;">
-                    <div class="thumbnail">
-                        <img src="/assets/images/gallery/image-2.jpg" class="img-responsive" alt="Orasi Ilmiah Prof. Suhardi, Kontribusi Komputasi Layanan Service terhadap Transformasi Digital" style="width:240px; height:150px;">
-                    </div>
-                    <div class="caption">
-                        <h5>
-                            <a href="https://www.itb.ac.id/news/read/57183/home/orasi-ilmiah-prof-suhardi-kontribusi-komputasi-layanan-service-terhadap-transformasi-digital">Orasi Ilmiah Prof. Suhardi, Kontribusi Komputasi Layanan Service terhadap Transformasi Digital</a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-md-3 col-xs-12">
-                <div class="boxes-15" style="height:290px;">
-                    <div class="thumbnail">
-                        <img src="/assets/images/gallery/image-3.jpg" class="img-responsive" alt="ITB Selenggarakan Chemistry Summer School 2019" style="width:240px; height:150px;">
-                    </div>
-                    <div class="caption">
-                        <h5>
-                            <a href="https://www.itb.ac.id/news/read/57182/home/itb-selenggarakan-chemistry-summer-school-2019">ITB Selenggarakan Chemistry Summer School 2019</a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 col-md-3 col-xs-12">
-                <div class="boxes-15" style="height:290px;">
-                    <div class="thumbnail">
-                        <img src="/assets/images/gallery/image-4.jpg" alt="Desain Pesawat untuk Misi Evakuasi, Tim Mahasiswa ITB Juara Lomba UAV Aerofest 2019" style="width:240px; height:150px;">
-                    </div>
-                    <div class="caption">
-                        <h5>
-                            <a href="https://www.itb.ac.id/news/read/57181/home/desain-pesawat-untuk-misi-evakuasi-tim-mahasiswa-itb-juara-lomba-uav-aerofest-2019">Desain Pesawat untuk Misi Evakuasi, Tim Mahasiswa ITB Juara Lomba UAV Aerofest 2019</a>
+                            <a href="#">Example</a>
                         </h5>
                     </div>
                 </div>

@@ -2,15 +2,9 @@
 <html>
 <head>
     @include('layouts.head')
+    @include('layouts.jsindex')
 </head>
 <style type="text/css">
-    .container a,div {
-        color:white;
-    }
-
-    span {
-        color:white;
-    }
 </style>
 <body class="no-skin">
         @include('layouts.header')
@@ -23,7 +17,6 @@
         </div>
         @include('layouts.footer')
     </div>
-    @include('layouts.jsindex')
 </body>
 
 </html>

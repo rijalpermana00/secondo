@@ -2,6 +2,7 @@
 <html>
 <head>
     @include('layouts.head')
+    @include('layouts.jsindex')
 </head>
 <body class="no-skin">
         @include('layouts.header')
