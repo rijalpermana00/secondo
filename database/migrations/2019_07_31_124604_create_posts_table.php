@@ -17,9 +17,9 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title',255);
             $table->string('content',1000);
-            $table->dateTime('create_date');
-            $table->dateTime('end_date');
-            $table->string('link');
+            $table->date('create_date');
+            $table->date('end_date');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

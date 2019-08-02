@@ -161,6 +161,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        App\Providers\UserServiceProvider::class,
+        App\Providers\ResultServiceProvider::class,
+        App\Providers\SetServiceProvider::class,
+        App\Providers\ObjectsServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -225,6 +229,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'UserHelp' => App\Helpers\User::class,
+        'Result' => App\Helpers\Result::class,
+        'Set' => App\Helpers\Set::class,
+        'Objects' => App\Helpers\Objects::class,
 
     ],
 

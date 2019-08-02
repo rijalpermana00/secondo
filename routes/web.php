@@ -21,7 +21,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('posts/createpost', 'PostsController@createpost')->name('post.createpost');
 
-Auth::routes();
+Route::post('posts/store', 'PostsController@store')->name('post.store');
 
 Route::resource('posts', 'PostsController');
 
+Auth::routes();
+
+Route::get('/helper-user', function () {
+    return UserHelp::get_username(1);
+});
