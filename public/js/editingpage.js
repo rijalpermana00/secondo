@@ -132,9 +132,9 @@ jQuery(function($){
 	    }
 	});
 
-	$('#saveposting').on('Click',function(){
-		$test = $("#formal").validate();	
-	})
+	$('#saveposting').on('click', function(){
+		saveposting();
+	});
 
 
 	function saveposting(){
@@ -161,7 +161,6 @@ jQuery(function($){
             },
 
             success: function(result){
-            	console.log(result);
             	if(result.info == 'OK'){
             		bootbox.dialog({
 	                    message: "<span class='bigger-110'>Sukses Menambahkan Postingan</span>",
@@ -171,6 +170,9 @@ jQuery(function($){
 	                         {
 	                                "label" : "<i class='icon-ok'></i> OK ",
 	                                "className" : "btn-sm btn-danger",
+	                                "callback": function() {
+	                					window.location.replace("/posts");
+                                	}
 	                        }
 	                    }
 	                });
@@ -203,5 +205,5 @@ jQuery(function($){
            	}
         });
 	};
-
+	
 });

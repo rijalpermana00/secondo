@@ -18,9 +18,10 @@ class PostsController extends Controller
 
     public function store(Request $request){
         
+        $result = new Result();
+        $posts  = new Posts;
+
         try{
-            $result = new Result();
-            $posts  = new Posts;
 
             $posts->title       = $request->judul;
             $posts->content     = $request->konten;
@@ -31,7 +32,7 @@ class PostsController extends Controller
             $data = $posts->save();
 
         } catch (\Exception $exc) {
-            
+
             return $result->failed($exc->getmessage());
         }
 
@@ -54,5 +55,21 @@ class PostsController extends Controller
     	
         return view('createpost');
     }	
+
+    public function getpost(){
+
+        $result = new Result();
+    
+        try{
+
+            $data = Posts::all();
+
+        } catch (\Exception $exc){
+
+            return $result->failed($exc->getmessage());
+        }
+
+        return response()->json($result->success($data));
+    }
 }
 

@@ -81,10 +81,6 @@ setTimeout(function() {
 	});
 }, 500);
 
-
-
-
-
 myTable.on( 'select', function ( e, dt, type, index ) {
 	if ( type === 'row' ) {
 		$( myTable.row( index ).node() ).find('input:checkbox').prop('checked', true);
