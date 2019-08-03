@@ -114,7 +114,7 @@ jQuery(function($){
 		var offset = $('#content').parent().offset();
 		var winHeight =  $(this).height();
 		
-		$('#content').css({'height':winHeight - offset.top - 10, 'max-height': 'none'});
+		$('#content').css({'height':winHeight - offset.top - 150, 'max-height': 'none'});
 	}).triggerHandler('resize.editor');
 	
 
@@ -132,9 +132,10 @@ jQuery(function($){
 	    }
 	});
 
-	$('#saveposting').on('click', function(){
-		saveposting();
-	});
+	$('#saveposting').on('Click',function(){
+		$test = $("#formal").validate();	
+	})
+
 
 	function saveposting(){
 		var startdate 	= $('#startdate').val();
@@ -160,7 +161,8 @@ jQuery(function($){
             },
 
             success: function(result){
-            	if(result.message == 'Success'){
+            	console.log(result);
+            	if(result.info == 'OK'){
             		bootbox.dialog({
 	                    message: "<span class='bigger-110'>Sukses Menambahkan Postingan</span>",
 	                    buttons:
@@ -187,7 +189,17 @@ jQuery(function($){
             	}
 
             },error:function(result) {
-           		console.log(JSON.parse(result.message));
+            	bootbox.dialog({
+                    message: "<span class='bigger-110'>Gagal Menambahkan Postingan</span>",
+                    buttons:
+                    {
+                        "OK" :
+                         {
+                                "label" : "<i class='icon-ok'></i> OK ",
+                                "className" : "btn-sm btn-danger",
+                        }
+                    }
+                });
            	}
         });
 	};

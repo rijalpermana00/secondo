@@ -8,7 +8,6 @@ use App\Helpers\Result;
 
 class PostsController extends Controller
 {
-
     public function index(){
         return view('managepost');
     }
@@ -20,16 +19,23 @@ class PostsController extends Controller
     public function store(Request $request){
         
         try{
-            $test = 'hai';
-            $posts      = new Posts();
-            $example    = $posts->test($test);
+            $result = new Result();
+            $posts  = new Posts;
+
+            $posts->title       = $request->judul;
+            $posts->content     = $request->konten;
+            $posts->create_date = $request->startdate;
+            $posts->end_date    = $request->enddate;
+            $posts->link        = $request->link;
+
+            $data = $posts->save();
 
         } catch (\Exception $exc) {
-
-            return $exc->getMessage();
+            
+            return $result->failed($exc->getmessage());
         }
 
-        return response()->json($result);
+        return response()->json($result->success($result));
     }
 
     public function show($id){
