@@ -1,93 +1,142 @@
-var myTable = $('#listpost')
-				
-.DataTable({
-   	iDisplayLength: 1,
-   	bProcessing : true,
-    bServerSide : false,
-    bDestroy    : true,
-    bFilter     : false,
-    bInfo       : false,
-    bLengthChange: false
-});
+loadtable();
 
-$.fn.dataTable.Buttons.defaults.dom.container.className = 'dt-buttons btn-overlap btn-group btn-overlap';
-				
-	new $.fn.dataTable.Buttons( myTable, {
-	buttons: [
-	  {
-		"extend": "colvis",
-		"text": "<i class='fa fa-search bigger-110 blue'></i> <span class='hidden'>Show/hide columns</span>",
-		"className": "btn btn-white btn-primary btn-bold",
-		columns: ':not(:first):not(:last)'
-	  },
-	  {
-		"extend": "copy",
-		"text": "<i class='fa fa-copy bigger-110 pink'></i> <span class='hidden'>Copy to clipboard</span>",
-		"className": "btn btn-white btn-primary btn-bold"
-	  },
-	  {
-		"extend": "csv",
-		"text": "<i class='fa fa-database bigger-110 orange'></i> <span class='hidden'>Export to CSV</span>",
-		"className": "btn btn-white btn-primary btn-bold"
-	  },
-	  {
-		"extend": "excel",
-		"text": "<i class='fa fa-file-excel-o bigger-110 green'></i> <span class='hidden'>Export to Excel</span>",
-		"className": "btn btn-white btn-primary btn-bold"
-	  },
-	  {
-		"extend": "pdf",
-		"text": "<i class='fa fa-file-pdf-o bigger-110 red'></i> <span class='hidden'>Export to PDF</span>",
-		"className": "btn btn-white btn-primary btn-bold"
-	  },
-	  {
-		"extend": "print",
-		"text": "<i class='fa fa-print bigger-110 grey'></i> <span class='hidden'>Print</span>",
-		"className": "btn btn-white btn-primary btn-bold",
-		autoPrint: false,
-		message: 'This print was produced using the Print button for DataTables'
-	  }		  
-	]
-} );
-myTable.buttons().container().appendTo( $('.tableTools-container') );
+function loadtable(){
 
-var defaultCopyAction = myTable.button(1).action();
-myTable.button(1).action(function (e, dt, button, config) {
-	defaultCopyAction(e, dt, button, config);
-	$('.dt-button-info').addClass('gritter-item-wrapper gritter-info gritter-center white');
-});
-
-var defaultColvisAction = myTable.button(0).action();
-myTable.button(0).action(function (e, dt, button, config) {
-	
-	defaultColvisAction(e, dt, button, config);
-	
-	
-	if($('.dt-button-collection > .dropdown-menu').length == 0) {
-		$('.dt-button-collection')
-		.wrapInner('<ul class="dropdown-menu dropdown-light dropdown-caret dropdown-caret" />')
-		.find('a').attr('href', '#').wrap("<li />")
-	}
-	$('.dt-button-collection').appendTo('.tableTools-container .dt-buttons')
-});
-
-////
-
-setTimeout(function() {
-	$($('.tableTools-container')).find('a.dt-button').each(function() {
-		var div = $(this).find(' > div').first();
-		if(div.length == 1) div.tooltip({container: 'body', title: div.parent().text()});
-		else $(this).tooltip({container: 'body', title: $(this).text()});
+    $.ajaxSetup({
+	    headers: {
+	        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+	    }
 	});
-}, 500);
+    $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: '/posts/getpost',
+        
+        success : function(result){
 
-myTable.on( 'select', function ( e, dt, type, index ) {
-	if ( type === 'row' ) {
-		$( myTable.row( index ).node() ).find('input:checkbox').prop('checked', true);
-	}
-} );
-myTable.on( 'deselect', function ( e, dt, type, index ) {
-	if ( type === 'row' ) {
-		$( myTable.row( index ).node() ).find('input:checkbox').prop('checked', false);
-	}
-} );
+            var dt = $('#listpost').DataTable( {
+                bDestroy: true,
+                bAutoWidth : false,
+                bJQueryUI: false,
+                aaData: result['data'],
+                aoColumns: [
+                    { 'mDataProp': 'title' },
+                    { 'mDataProp': 'content' },
+                    { 'mDataProp': 'create_date' },
+                    { 'mDataProp': 'end_date' },
+                    { 'mDataProp': function getdetail(data, type, row) {
+                    		var foo;
+	                        foo = '<center><a href="#" class="btn btn-success btn-xs" onClick="editposts(\''+data.id+'\')"><span title="Detail Permintaan"><i class="ace-icon fa fa-search bigger-110 icon-only"></i></span></a>&nbsp';
+	                        foo += '<a href="#" class="btn btn-danger btn-xs" onClick="deleteposts(\''+data.id+'\')"><span title="Detail Permintaan"><i class="ace-icon fa fa-remove bigger-110 icon-only"></i></span></a><center>';
+	                    	return foo;
+	                	}
+       				},
+                ],
+
+                aaSorting: [[0, 'asc']],
+
+                order: [[1, 'asc']],
+
+             });
+        },
+        
+        error: function(xhr) {
+          
+            if(xhr.status != 200){
+                bootbox.dialog({
+                    message: "<span class='bigger-110'>"+xhr.status+"-"+xhr.statusText+"<br>Silahkan coba kembali</span>",
+                    buttons:
+                    {
+                            "OK" :
+                            {
+                                    "label" : "<i class='icon-ok'></i> OK ",
+                                    "className" : "btn-sm btn-danger",
+                                    callback : function(){
+                                                
+                                    }
+                            }
+                    }
+                });
+            }
+        }
+    });
+}
+
+$('#newposts').on('click', function(){
+	window.location.replace("/posts/create");
+})
+
+function editposts(id){
+	window.location.replace("/posts/"+id+"/edit");
+}
+
+function deleteposts(id){
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: '/posts/destroy',
+        data:{
+            id : id,
+        },
+        
+        success : function(result){
+            if(result.code == 0){
+                bootbox.dialog({
+                    message: "<span class='bigger-110'>Data berhasil dihapus</span>",
+                    buttons:
+                    {
+                        "OK" :
+                        {
+                                "label" : "<i class='icon-ok'></i> OK ",
+                                "className" : "btn-sm btn-success",
+                                callback : function(){
+                                    location.reload();  
+                                }
+                        }
+                    }
+                });
+            }else{
+                 bootbox.dialog({
+                    message: "<span class='bigger-110'>Data gagal dihapus karena: "+result.info+"</span>",
+                    buttons:
+                    {
+                        "OK" :
+                        {
+                                "label" : "<i class='icon-ok'></i> OK ",
+                                "className" : "btn-sm btn-danger",
+                                callback : function(){
+                                            
+                                }
+                        }
+                    }
+                });
+            }
+        },
+        
+        error: function(xhr) {
+          
+            if(xhr.status != 200){
+                bootbox.dialog({
+                    message: "<span class='bigger-110'>"+xhr.status+"-"+xhr.statusText+"<br>Silahkan coba kembali</span>",
+                    buttons:
+                    {
+                            "OK" :
+                            {
+                                    "label" : "<i class='icon-ok'></i> OK ",
+                                    "className" : "btn-sm btn-danger",
+                                    callback : function(){
+                                                
+                                    }
+                            }
+                    }
+                });
+            }
+        }
+    });
+}

@@ -1,71 +1,22 @@
 jQuery(function($){
-	$('.date-picker').datepicker({
-		autoclose: true,
-		todayHighlight: true
-	})
-	//show datepicker when clicking on the icon
-	.next().on(ace.click_event, function(){
-		$(this).prev().focus();
-	});
+	
+	if(js.data != null){
+		$('#title').val(js.data.title ? js.data.title : '');
+		$('#content').html(js.data.content ? js.data.content : '');
+		$('#startdate').val(js.data.create_date ? js.data.create_date : '');
+		$('#enddate').val(js.data.end_date ? js.data.end_date : '');
+	}
 
-	if(!ace.vars['old_ie']) $('#date-timepicker1').datetimepicker({
-	 //format: 'MM/DD/YYYY h:mm:ss A',//use this option to display seconds
-	 	icons: {
-			time: 'fa fa-clock-o',
-			date: 'fa fa-calendar',
-			up: 'fa fa-chevron-up',
-			down: 'fa fa-chevron-down',
-			previous: 'fa fa-chevron-left',
-			next: 'fa fa-chevron-right',
-			today: 'fa fa-arrows ',
-			clear: 'fa fa-trash',
-			close: 'fa fa-times'
-		}
-	}).next().on(ace.click_event, function(){
-		$(this).prev().focus();
-	});
-
-	$('#timepicker1').timepicker({
-		minuteStep: 1,
-		showSeconds: true,
-		showMeridian: false,
-		disableFocus: true,
-		icons: {
-			up: 'fa fa-chevron-up',
-			down: 'fa fa-chevron-down'
-		}
-	}).on('focus', function() {
-		$('#timepicker1').timepicker('showWidget');
-	}).next().on(ace.click_event, function(){
-		$(this).prev().focus();
-	});
-
-	//or change it into a date range picker
 	$('.input-daterange').datepicker({
 		autoclose:true,
 		format: 'yyyy-mm-dd'
-	});
-
-
-	//to translate the daterange picker, please copy the "examples/daterange-fr.js" contents here before initialization
-	$('input[name=date-range-picker]').daterangepicker({
-		'applyClass' : 'btn-sm btn-success',
-		'cancelClass' : 'btn-sm btn-default',
-		locale: {
-			applyLabel: 'Apply',
-			cancelLabel: 'Cancel',
-			format: 'yyyy-mm-dd'
-		}
-	})
-	.prev().on(ace.click_event, function(){
-		$(this).next().focus();
 	});
 
 	function showErrorAlert (reason, detail) {
 	    var msg='';
 	    if (reason==='unsupported-file-type') { msg = "Unsupported format " +detail; }
 	    else {
-	        //console.log("error uploading file", reason, detail);
+	        console.log("error uploading file", reason, detail);
 	    }
 	    $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+ 
 	     '<strong>File upload error</strong> '+msg+' </div>').prependTo('#alerts');
@@ -136,13 +87,25 @@ jQuery(function($){
 		saveposting();
 	});
 
+	$('#cancelposting').on('click', function(){
+		window.location.replace('/posts');
+	});
+
 
 	function saveposting(){
 		var startdate 	= $('#startdate').val();
 		var enddate 	= $('#enddate').val();
 		var judul 		= $('#title').val();
 		var konten 		= $('#content').html();
-
+		var url;
+		var id;
+		if(js.edit){
+			url = '/posts/update';
+			id  = js.data.id;
+		}else{
+			url = '/posts/store';
+			id  = null;
+		}
 		$.ajaxSetup({
 		    headers: {
 		        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -152,8 +115,9 @@ jQuery(function($){
 		$.ajax({
             type        : 'POST',
             dataType    : 'json',
-            url         : '/posts/store',
+            url         : url,
             data: { 
+                id			: id, 
                 startdate	: startdate, 
                 enddate   	: enddate,
                 judul     	: judul,
@@ -161,9 +125,15 @@ jQuery(function($){
             },
 
             success: function(result){
+            	var txt;
+            	if(js.data != null){
+            		txt = 'Mengedit';
+            	}else{
+            		txt = 'Menambahkan';
+            	}
             	if(result.info == 'OK'){
             		bootbox.dialog({
-	                    message: "<span class='bigger-110'>Sukses Menambahkan Postingan</span>",
+	                    message: "<span class='bigger-110'>Sukses "+txt+" Postingan</span>",
 	                    buttons:
 	                    {
 	                        "OK" :
@@ -178,7 +148,7 @@ jQuery(function($){
 	                });
             	}else{
             		bootbox.dialog({
-	                    message: "<span class='bigger-110'>Gagal Menambahkan Postingan</span>",
+	                    message: "<span class='bigger-110'>Gagal "+txt+" Postingan</span>",
 	                    buttons:
 	                    {
 	                        "OK" :

@@ -19,13 +19,13 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('posts/createpost', 'PostsController@createpost')->name('post.createpost');
-
 Route::post('posts/store', 'PostsController@store')->name('post.store');
 
-Route::get('posts/stores', 'PostsController@store')->name('post.store');
+Route::post('posts/edit', 'PostsController@edit')->name('post.edit');
 
-Route::get('posts/getpost', 'PostsController@getpost')->name('post.getpost');
+Route::post('posts/update', 'PostsController@update')->name('post.update');
+
+Route::post('posts/destroy', 'PostsController@destroy')->name('post.destroy');
 
 Route::resource('posts', 'PostsController');
 

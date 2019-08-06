@@ -1,7 +1,15 @@
 @extends('mainlayout')
 
 @section('content') 
-    
+    <style type="text/css">
+        html{
+            width: 100%;
+        }
+        body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+    </style>
     <div class="row">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -66,20 +74,12 @@
     <div class="col-md-8 col-md-offset-2">
         <div class="row">
             <div class="page-header text-center">
-                <h2><a href="https://www.itb.ac.id/news/index/category/home">Berita</a></h2>
+                <h2><a href="/posts/">Berita</a></h2>
             </div>
-            <div class="col-sm-3 col-md-3 col-xs-12">
-                <div class="boxes-15" style="height:290px;">
-                    <div class="thumbnail">
-                        <img src="/assets/images/gallery/image-1.jpg" class="img-responsive" alt="Mengenalkan Sains dan Profesi pada Anak" style="width:240px; height:150px;">
-                    </div>
-                    <div class="caption">
-                        <h5>
-                            <a href="#">Example</a>
-                        </h5>
-                    </div>
-                </div>
+            <div id="posts">
             </div>
         </div>
     </div>
+    <script src="/js/index.js" type="text/javascript">
+    </script>
 @endsection

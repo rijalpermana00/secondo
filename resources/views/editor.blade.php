@@ -58,11 +58,17 @@
                                 <i class="ace-icon fa fa-floppy-o bigger-125"></i>
                                 save
                             </span>
+                            
+                            <span class="btn btn-md btn-danger" id="cancelposting">
+                                <i class="ace-icon fa fa-remove bigger-125"></i>
+                                Cancel
+                            </span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="/js/editingpage.js" type="text/javascript"></script>
+    <script src="/js/editorpage.js" type="text/javascript">
+    </script>
 @endsection

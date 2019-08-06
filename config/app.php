@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\UserServiceProvider::class,
         App\Providers\ResultServiceProvider::class,
+        'Laracasts\Utilities\JavaScript\JavaScriptServiceProvider',
 
         /*
          * Package Service Providers...
