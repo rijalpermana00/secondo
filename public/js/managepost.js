@@ -21,7 +21,6 @@ function loadtable(){
                 aaData: result['data'],
                 aoColumns: [
                     { 'mDataProp': 'title' },
-                    { 'mDataProp': 'content' },
                     { 'mDataProp': 'create_date' },
                     { 'mDataProp': 'end_date' },
                     { 'mDataProp': function getdetail(data, type, row) {

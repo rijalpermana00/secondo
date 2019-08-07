@@ -8,6 +8,7 @@
         body {
             width: 100%;
             overflow-x: hidden;
+            max-height: 100%;
         }
     </style>
     <div class="row">
@@ -71,8 +72,8 @@
         </div>
     </div>
     <br>
-    <div class="col-md-8 col-md-offset-2">
-        <div class="row">
+    <div class="row">
+        <div class="container">
             <div class="page-header text-center">
                 <h2><a href="/posts/">Berita</a></h2>
             </div>

@@ -1,5 +1,5 @@
 loadposts();
-console.log($('meta[name="_token"]').attr('content'));
+
 function loadposts(){
 
     $.ajaxSetup({
@@ -10,7 +10,7 @@ function loadposts(){
     $.ajax({
         type: 'GET',
         dataType: 'json',
-        url: '/posts/getpost',
+        url: '/posts/show',
         
         success : function(result){
             var data = result.data;
@@ -18,13 +18,13 @@ function loadposts(){
             for(i=(data.length-1); i >= data.length-4; i--){
 
                 var posts = '<div class="col-sm-3 col-md-3 col-xs-12">'+
-                                '<div class="boxes-15" style="height:290px;">'+
+                                '<div class="boxes-15">'+
                                     '<div class="thumbnail">'+
                                         '<img src="/assets/images/gallery/image-1.jpg" class="img-responsive" alt="Mengenalkan Sains dan Profesi pada Anak">'+
                                     '</div>'+
                                     '<div class="caption">'+
                                         '<h5>'+
-                                            '<a href="/posts/">'+data[i]["title"]+'</a>'+
+                                            '<a href="#" onClick="getpost((\''+data[i]["id"]+'\'))">'+data[i]["title"]+'</a>'+
                                         '</h5>'+
                                     '</div>'+
                                 '</div>'+
@@ -53,4 +53,9 @@ function loadposts(){
             }
         }
     });
+}
+
+function getpost(id){
+    console.log(id);
+    window.location.replace("/posts/"+id+"/get");
 }

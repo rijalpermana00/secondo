@@ -8,8 +8,6 @@
 <script src="/assets/js/jquery.hotkeys.index.min.js" type="text/javascript"></script>
 <script src="/assets/js/bootstrap-wysiwyg.min.js" type="text/javascript"></script>
 <script src="/assets/js/bootbox.js" type="text/javascript"></script>
-<script src="/assets/js/ace-elements.min.js" type="text/javascript"></script>
-<script src="/assets/js/ace.min.js" type="text/javascript"></script>
 <script src="/assets/js/bootstrap-datepicker.min.js"></script>
 <script src="/assets/js/bootstrap-timepicker.min.js"></script>
 <script src="/assets/js/moment.min.js"></script>

@@ -15,19 +15,39 @@ Route::get('/', function () {
     return view('example');
 });
 
+Route::get('/news', function () {
+    return view('contentblog');
+});
+
 // Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('posts/store', 'PostsController@store')->name('post.store');
+Route::get('/upload', 'FilesController@index')->name('upload');
 
-Route::post('posts/edit', 'PostsController@edit')->name('post.edit');
+Route::get('posts/testget', 'PostsController@testget')->name('posts.testget');
 
-Route::post('posts/update', 'PostsController@update')->name('post.update');
+Route::get('posts/{post}/get', 'PostsController@get')->name('posts.get');
 
-Route::post('posts/destroy', 'PostsController@destroy')->name('post.destroy');
+Route::post('posts/testpost', 'PostsController@testpost')->name('posts.testpost');
+
+Route::post('files/store', 'FilesController@store')->name('files.store');
+
+Route::post('posts/store', 'PostsController@store')->name('posts.store');
+
+Route::post('posts/get', 'PostsController@get')->name('posts.get');
+
+Route::post('posts/edit', 'PostsController@edit')->name('posts.edit');
+
+Route::post('posts/update', 'PostsController@update')->name('posts.update');
+
+Route::post('posts/show', 'PostsController@show')->name('posts.show');
+
+Route::post('posts/destroy', 'PostsController@destroy')->name('posts.destroy');
 
 Route::resource('posts', 'PostsController');
+
+Route::resource('Files', 'FilesController');
 
 Auth::routes();
 

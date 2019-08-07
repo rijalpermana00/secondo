@@ -31,29 +31,60 @@ class PostsController extends Controller
 
         try{
 
-            $posts->title       = $request->judul;
-            $posts->content     = $request->konten;
-            $posts->create_date = $request->startdate;
-            $posts->end_date    = $request->enddate;
-            $posts->link        = $request->link;
+            $param  = $request->all();
 
-            $data = $posts->save();
+            $data   = $posts->savelightweighteditor($param);
 
         } catch (\Exception $exc) {
 
             return $result->failed($exc->getmessage());
         }
 
-        return response()->json($result->success($result));
+        return response()->json($result->success($data));
     }
 
-    public function show(){
+    public function postTest() {
+        
+        $response = array(
+            'status' => 'success',
+        );
+        return Response::json( $response  );
+    }
+
+    public function get(Request $request, $id){
+
+        $result = new Result();
+
+        try{
+
+            $data       = Posts::findorfail($id);
+
+            $otherdata  = Posts::where('id','!=', $id)->get();
+
+        } catch (\Exception $exc){
+
+            return $result->failed($exc->getmessage());
+        }
+        $array = [
+            'maindata'  => $data,
+            'otherdata' => $otherdata
+        ];
+         
+        JavaScript::put($array);
+
+        return view('contentblog');
+    }
+
+    public function show(Request $request){
 
         $result = new Result();
     
         try{
-
-            $data = Posts::all();
+            if($request->id){
+                $data = Posts::findorfail($request->id);
+            }else{
+                $data = Posts::all();
+            }
 
         } catch (\Exception $exc){
 
@@ -114,8 +145,7 @@ class PostsController extends Controller
         try{
             $id                 = $request->id;
             $posts              = Posts::findorfail($id);
-
-            $data = $posts->delete();
+            $data               = $posts->delete();
 
         } catch (\Exception $exc) {
 
@@ -123,6 +153,22 @@ class PostsController extends Controller
         }
 
         return response()->json($result->success($data));
+    }
+
+    public function testget(){
+
+        $result = new Result();
+        $posts  = new Posts;
+
+        $test = $posts->test('test');
+    }
+
+    public function testpost(Request $request){
+
+        $result = new Result();
+        $posts  = new Posts;
+        print_r('expression');die;
+        $test = $posts->test($variable);
     }
 
 }
