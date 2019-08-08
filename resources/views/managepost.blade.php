@@ -13,7 +13,6 @@
             <tr>
                 <th>Title</th>
                 <th>Start Date</th>
-                <th>End Date</th>
                 <th>Action</th>
             </tr>
         </thead>

@@ -97,15 +97,15 @@ jQuery(function($){
 		var enddate 	= $('#enddate').val();
 		var judul 		= $('#title').val();
 		var konten 		= $('#content').html();
-		var url;
+		var url 		= '/posts/store';
 		var id;
+		
 		if(js.edit){
-			url = '/posts/update';
 			id  = js.data.id;
 		}else{
-			url = '/posts/store';
 			id  = null;
 		}
+
 		$.ajaxSetup({
 		    headers: {
 		        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')

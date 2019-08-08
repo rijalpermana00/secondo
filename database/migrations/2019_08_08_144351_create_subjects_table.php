@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SeqNamefile extends Migration
+class CreateSubjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class SeqNamefile extends Migration
      */
     public function up()
     {
-        Schema::create('Seq_namefile', function (Blueprint $table) {
+        Schema::create('subjects', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('code');
+            $table->string('name');
+            $table->integer('grade')->nullable();
+            $table->integer('credit')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,6 +30,6 @@ class SeqNamefile extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('subjects');
     }
 }

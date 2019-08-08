@@ -16,11 +16,13 @@ function loadposts(){
             var data = result.data;
             var i;
             for(i=(data.length-1); i >= data.length-4; i--){
-
+                var thumbnail = data[i]["link"] ? data[i]["link"] : "/assets/images/default.png";
                 var posts = '<div class="col-sm-3 col-md-3 col-xs-12">'+
                                 '<div class="boxes-15">'+
-                                    '<div class="thumbnail">'+
-                                        '<img src="/assets/images/gallery/image-1.jpg" class="img-responsive" alt="Mengenalkan Sains dan Profesi pada Anak">'+
+                                    '<div class="thumbnail" style="max-height:151px; max-width:261px; display: flex; overflow:hidden;">'+
+                                        '<a href="/posts/'+data[i]["id"]+'/get">'+
+                                            '<img src='+thumbnail+' class="img-responsive" style="width:100%; height: 100%; max-height:100%; object-fit: cover;">'+
+                                        '</a>'+
                                     '</div>'+
                                     '<div class="caption">'+
                                         '<h5>'+

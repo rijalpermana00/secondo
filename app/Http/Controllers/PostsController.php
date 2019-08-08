@@ -121,15 +121,9 @@ class PostsController extends Controller
         $result = new Result();
         $posts  = new Posts;
         try{
-            $id                 = $request->id;
-            $posts              = Posts::find($id);
-            $posts->title       = $request->judul;
-            $posts->content     = $request->konten;
-            $posts->create_date = $request->startdate;
-            $posts->end_date    = $request->enddate;
-            $posts->link        = $request->link;
 
-            $data = $posts->save();
+            $param  = $request->all();
+            $data   = $posts->savelightweighteditor($param);
 
         } catch (\Exception $exc) {
 

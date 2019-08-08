@@ -8,24 +8,25 @@ function loadtable(){
 	    }
 	});
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         dataType: 'json',
-        url: '/posts/getpost',
+        url: '/subject/get',
         
         success : function(result){
 
-            var dt = $('#listpost').DataTable( {
+            var dt = $('#listsubject').DataTable( {
                 bDestroy: true,
                 bAutoWidth : false,
                 bJQueryUI: false,
                 aaData: result['data'],
                 aoColumns: [
-                    { 'mDataProp': 'title' },
-                    { 'mDataProp': 'create_date' },
+                    { 'mDataProp': 'code' },
+                    { 'mDataProp': 'name' },
+                    { 'mDataProp': 'grade' },
+                    { 'mDataProp': 'credit' },
                     { 'mDataProp': function getdetail(data, type, row) {
                     		var foo;
-                            foo = '<center><a href="#" class="btn btn-primary btn-xs" onClick="openpost(\''+data.id+'\')"><span title="Detail Permintaan"><i class="ace-icon fa fa-search bigger-110 icon-only"></i></span></a>&nbsp';
-	                        foo += '<a href="#" class="btn btn-success btn-xs" onClick="editposts(\''+data.id+'\')"><span title="Detail Permintaan"><i class="ace-icon fa fa-pencil bigger-110 icon-only"></i></span></a>&nbsp';
+                            foo = '<center><a href="#" class="btn btn-success btn-xs" onClick="editsubject(\''+data.id+'\')"><span title="Detail Permintaan"><i class="ace-icon fa fa-pencil bigger-110 icon-only"></i></span></a>&nbsp';
 	                        foo += '<a href="#" class="btn btn-danger btn-xs" onClick="deleteposts(\''+data.id+'\')"><span title="Detail Permintaan"><i class="ace-icon fa fa-remove bigger-110 icon-only"></i></span></a><center>';
 	                    	return foo;
 	                	}

@@ -15,9 +15,15 @@ Route::get('/', function () {
     return view('example');
 });
 
+Route::get('/index', function () {
+    return view('index');
+});
+
 Route::get('/news', function () {
     return view('contentblog');
 });
+
+Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 
 // Route::get('/', 'HomeController@index')->name('home');
 
@@ -25,9 +31,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/upload', 'FilesController@index')->name('upload');
 
+Route::get('posts/{post}/get', 'PostsController@get')->name('posts.get');
+
 Route::get('posts/testget', 'PostsController@testget')->name('posts.testget');
 
-Route::get('posts/{post}/get', 'PostsController@get')->name('posts.get');
+Route::post('subject/get', 'SubjectController@get')->name('subject.get');
 
 Route::post('posts/testpost', 'PostsController@testpost')->name('posts.testpost');
 
@@ -47,7 +55,9 @@ Route::post('posts/destroy', 'PostsController@destroy')->name('posts.destroy');
 
 Route::resource('posts', 'PostsController');
 
-Route::resource('Files', 'FilesController');
+Route::resource('files', 'FilesController');
+
+Route::resource('subject', 'SubjectController');
 
 Auth::routes();
 

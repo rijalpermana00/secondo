@@ -10,6 +10,9 @@
             overflow-x: hidden;
             max-height: 100%;
         }
+        .thumbnail img {
+            object-fit: cover;
+        }
     </style>
     <div class="row">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -24,19 +27,19 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="/assets/images/Poster/1.jpg" style="width:100%;">
+                    <img src="/assets/images/Poster/1.jpg" style="width:100%; height: 100%;">
                 </div>
 
                 <div class="item">
-                    <img src="/assets/images/Poster/2.jpg" style="width:100%;">
+                    <img src="/assets/images/Poster/2.jpg" style="width:100%; height: 100%;">
                 </div>
 
                 <div class="item">
-                    <img src="/assets/images/Poster/3.jpg" style="width:100%;">
+                    <img src="/assets/images/Poster/3.jpg" style="width:100%; height: 100%;">
                 </div>
 
                 <div class="item">
-                    <img src="/assets/images/Poster/4.jpg" style="width:100%;">
+                    <img src="/assets/images/Poster/4.jpg" style="width:100%; height: 100%;">
                 </div>
             </div>
 
