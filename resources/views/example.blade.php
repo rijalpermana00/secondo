@@ -13,6 +13,12 @@
         .thumbnail img {
             object-fit: cover;
         }
+        .carousel-inner{
+            max-height: 500px;
+        }
+        .item{
+            display: flex;
+        }
     </style>
     <div class="row">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -27,19 +33,11 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="/assets/images/Poster/1.jpg" style="width:100%; height: 100%;">
+                    <img src="/assets/images/155770.jpg" style="width:100%; height: 100%; object-fit: fill;">
                 </div>
 
                 <div class="item">
-                    <img src="/assets/images/Poster/2.jpg" style="width:100%; height: 100%;">
-                </div>
-
-                <div class="item">
-                    <img src="/assets/images/Poster/3.jpg" style="width:100%; height: 100%;">
-                </div>
-
-                <div class="item">
-                    <img src="/assets/images/Poster/4.jpg" style="width:100%; height: 100%;">
+                    <img src="/assets/images/155772.jpg" style="width:100%; height: 100%; object-fit: fill;max-width:100%;max-height:100%;">
                 </div>
             </div>
 
