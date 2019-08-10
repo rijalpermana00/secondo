@@ -20,7 +20,7 @@ Route::get('/index', function () {
 });
 
 Route::get('/news', function () {
-    return view('contentblog');
+    return view('posts.contentblog');
 });
 
 Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
@@ -36,6 +36,10 @@ Route::get('posts/{post}/get', 'PostsController@get')->name('posts.get');
 Route::get('posts/testget', 'PostsController@testget')->name('posts.testget');
 
 Route::post('subject/get', 'SubjectController@get')->name('subject.get');
+
+Route::post('subject/store', 'SubjectController@store')->name('subject.store');
+
+Route::post('subject/destroy', 'SubjectController@destroy')->name('subject.destroy');
 
 Route::post('posts/testpost', 'PostsController@testpost')->name('posts.testpost');
 

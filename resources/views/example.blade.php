@@ -2,22 +2,76 @@
 
 @section('content') 
     <style type="text/css">
-        html{
-            width: 100%;
+        @media only screen and (min-width:321px) and (max-width:480px) { /*phone*/
+            .item img {
+              width: 100%;
+              height: 200px;
+              max-height: 200px;
+              object-fit: fill;
+            }
+            .carousel-inner{
+                max-height: 200px;
+                height: 200px;
+            }
+            .responsive_slider_img {
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                height: 200px;
+            }
         }
-        body {
-            width: 100%;
-            overflow-x: hidden;
-            max-height: 100%;
+        @media only screen and (min-width: 480px) and (max-width: 960px) { /*tablet */
+            .item img {
+                width: 100%;
+                max-height: 500px;
+                object-fit: fill;
+                height:500px !important;
+                position:absolute;
+                z-index:1;
+            }
+            .carousel-inner{
+                max-height: 500px;
+                height: 500px;
+            }
+            .responsive_slider_img {
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                height: 500px;
+            }
         }
-        .thumbnail img {
-            object-fit: cover;
-        }
-        .carousel-inner{
-            max-height: 500px;
-        }
-        .item{
-            display: flex;
+        @media only screen and (min-width: 961px) {
+            .thumbnail{
+                max-height:151px; 
+                display: flex; 
+                overflow:hidden;
+            }
+            .thumbnail img {
+                object-fit: cover;
+            }
+            .boxes-15{
+                text-align: center;
+                display: inline-block;
+            }
+            .carousel-inner{
+                max-height: 500px;
+                height: auto;
+            }
+           .item img {
+              width: 100%;
+              height: 600px;
+              max-height: 600px;
+              object-fit: fill;
+            }
+            .responsive_slider_img {
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                height: 600px;
+            }
         }
     </style>
     <div class="row">
@@ -30,14 +84,20 @@
                 <li data-target="#myCarousel" data-slide-to="3"></li>
             </ol>
 
-            <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="/assets/images/155770.jpg" style="width:100%; height: 100%; object-fit: fill;">
+                    <div class="responsive_slider_img" style="background-image:url('/assets/images/155770.jpg');">                                 
+                    </div>
                 </div>
 
                 <div class="item">
-                    <img src="/assets/images/155772.jpg" style="width:100%; height: 100%; object-fit: fill;max-width:100%;max-height:100%;">
+                    <div class="responsive_slider_img" style="background-image:url('/assets/images/155772.jpg');">
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="responsive_slider_img" style="background-image:url('/assets/images/th.jpg');">                                 
+                    </div>
                 </div>
             </div>
 
@@ -52,7 +112,7 @@
             </a>
         </div>
     </div>
-    <div class="row" style="background-color: #2E6DA4;">
+    <div class="row customback">
         <div class="container">
             <div class="row text-center">
                 <div class="col-sm-4">

@@ -11,12 +11,18 @@ class SubjectController extends Controller
 {
     public function index(){
     	
-    	return view('index');
+    	return view('subject.listsubject');
     }
 
     public function show(){
 
-    	return view('listsubject');
+        $array = [
+            'data' => null,
+        ];
+         
+        JavaScript::put($array);
+
+    	return view('subject.listsubject');
     }
 
     public function get(Request $request){
@@ -40,11 +46,26 @@ class SubjectController extends Controller
 
     public function create(Request $request){
 
-    	return view('formsubject');
+    	return view('subject.formsubject');
 
     }
 
     public function store(Request $request){
+
+        $result     = new Result();
+        $subject    = new Subject;
+
+        try{
+            
+            $param  = $request->all();
+            $data   = $subject->submitsubject($param);
+
+        } catch (\Exception $exc) {
+
+            return $result->failed($exc->getmessage());
+        }
+
+        return response()->json($result->success($data));
 
     }
 
@@ -52,7 +73,19 @@ class SubjectController extends Controller
 
     }
 
-    public function delete(Request $request){
+    public function destroy(Request $request){
+        $result     = new Result();
+        $subject    = new Subject;
+        try{
+            $id        = $request->id;
+            $subject   = Subject::findorfail($id);
+            $data      = $subject->delete();
 
+        } catch (\Exception $exc) {
+
+            return $result->failed($exc->getmessage());
+        }
+
+        return response()->json($result->success($data));
     }
 }

@@ -9,8 +9,15 @@ use JavaScript;
 
 class PostsController extends Controller
 {
+
+    public function __construct(){
+
+       $this->middleware('auth');
+    }
+
     public function index(){
-        return view('managepost');
+        
+        return view('posts.managepost');
     }
 
     public function create(){
@@ -21,7 +28,7 @@ class PostsController extends Controller
          
         JavaScript::put($array);
 
-        return view('editor');
+        return view('posts.editor');
     }
 
     public function store(Request $request){
@@ -30,10 +37,12 @@ class PostsController extends Controller
         $posts  = new Posts;
 
         try{
+            
+            $param              = $request->all();
 
-            $param  = $request->all();
+            $param['creator']   = auth()->user()->name;
 
-            $data   = $posts->savelightweighteditor($param);
+            $data               = $posts->savelightweighteditor($param);
 
         } catch (\Exception $exc) {
 
@@ -72,7 +81,7 @@ class PostsController extends Controller
          
         JavaScript::put($array);
 
-        return view('contentblog');
+        return view('posts.contentblog');
     }
 
     public function show(Request $request){

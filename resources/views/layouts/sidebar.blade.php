@@ -63,15 +63,6 @@
                 </li>
 
                 <li class="">
-                    <a href="#">
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Siswa
-                    </a>
-
-                    <b class="arrow"></b>
-                </li>
-
-                <li class="">
                     <a href="#" class="dropdown-toggle">
                         <i class="menu-icon fa fa-caret-right"></i>
                         Unggahan
@@ -109,10 +100,6 @@
 
                 <span class="menu-text">
                     About Us
-
-                    <span class="badge badge-transparent tooltip-error" title="2 Important Events">
-                        <i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-                    </span>
                 </span>
             </a>
 

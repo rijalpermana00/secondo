@@ -46,5 +46,5 @@
         </div>
     </div>
 </div>
-<script src="/js/loadnews.js" type="text/javascript"></script>
+<script src="/js/posts/loadnews.js" type="text/javascript"></script>
 @endsection

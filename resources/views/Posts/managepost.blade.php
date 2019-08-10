@@ -12,11 +12,11 @@
         <thead>
             <tr>
                 <th>Title</th>
-                <th>Start Date</th>
+                <th>Create Date</th>
                 <th>Action</th>
             </tr>
         </thead>
     </table>
 </div>
-<script src="/js/managepost.js" type="text/javascript"></script>
+<script src="/js/posts/managepost.js" type="text/javascript"></script>
 @endsection

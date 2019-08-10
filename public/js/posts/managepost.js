@@ -21,7 +21,7 @@ function loadtable(){
                 aaData: result['data'],
                 aoColumns: [
                     { 'mDataProp': 'title' },
-                    { 'mDataProp': 'create_date' },
+                    { 'mDataProp': 'created_at' },
                     { 'mDataProp': function getdetail(data, type, row) {
                     		var foo;
                             foo = '<center><a href="#" class="btn btn-primary btn-xs" onClick="openpost(\''+data.id+'\')"><span title="Detail Permintaan"><i class="ace-icon fa fa-search bigger-110 icon-only"></i></span></a>&nbsp';

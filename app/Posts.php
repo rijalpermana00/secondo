@@ -7,7 +7,7 @@ use App\Helpers\Result;
 
 class Posts extends Model{
 
-    protected $fillable = ['title', 'content', 'start_date', 'end_date', 'link'];
+    protected $fillable = ['title', 'content', 'link', 'creator'];
 
     public function test($req){
     	print_r('halo');die;
@@ -38,8 +38,8 @@ class Posts extends Model{
             }
 
             $src    = $image->getAttribute('src');
-            if(!file_exists($src)){
-                $type                   = pathinfo($src, PATHINFO_EXTENSION);
+            if(!file_exists(getcwd().$src)){
+                $type = pathinfo($src, PATHINFO_EXTENSION);
                 if(!($type == 'JPG' || $type == 'png' || $type == 'PNG' || $type == 'JPEG' || $type == 'jpg' || $type == 'jpeg')){
                     $data                   = file_get_contents($src);
                     $base64                 = 'data:image/' . $type . ';base64,' . base64_encode($data);
@@ -51,7 +51,7 @@ class Posts extends Model{
                     $upload                 = file_put_contents($location, $output);
 
                     array_push($locationarr, $location);
-                    $image->setAttribute( 'src', $location );
+                    $image->setAttribute( 'src', '/'.$location );
                 }else{
                     array_push($locationarr, $src);
                     $image->setAttribute('src', $src);
@@ -69,16 +69,14 @@ class Posts extends Model{
             $posts             = Posts::find($param['id']);
             $posts->title       = $param['judul'];
             $posts->content     = $html;
-            $posts->create_date = $param['startdate'];
-            $posts->end_date    = $param['enddate'];
-            $posts->link        = $locationarr[0];
+            $posts->link        = $locationarr ? $locationarr[0] : null;
+            $posts->creator     = $posts->creator ? $posts->creator : null;
 
         }else{
             $posts->title       = $param['judul'];
             $posts->content     = $html;
-            $posts->create_date = $param['startdate'];
-            $posts->end_date    = $param['enddate'];
-            $posts->link 		= $locationarr[0];
+            $posts->link        = $locationarr ? $locationarr[0] : null;
+            $posts->creator     = $param['creator'] ? $param['creator'] : null;
 		    
         };
             $data = $posts->save();
