@@ -6,14 +6,13 @@
     </head>
     <body class="no-skin">
         @include('layouts.header')
+        @include('layouts.styleindex')
         <div class="main-container ace-save-state" id="main-container">
             @include('layouts.sidebar')
             <div class="main-content">
                 <div class="main-content-inner">
                     <div class="page-content">
-                        
                         @yield('content')
-                    
                     </div>
                 </div>
             </div>

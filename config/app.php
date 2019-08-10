@@ -163,8 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\UserServiceProvider::class,
         App\Providers\ResultServiceProvider::class,
-        App\Providers\SetServiceProvider::class,
-        App\Providers\ObjectsServiceProvider::class,
+        'Laracasts\Utilities\JavaScript\JavaScriptServiceProvider',
 
         /*
          * Package Service Providers...
@@ -231,8 +230,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'UserHelp' => App\Helpers\User::class,
         'Result' => App\Helpers\Result::class,
-        'Set' => App\Helpers\Set::class,
-        'Objects' => App\Helpers\Objects::class,
 
     ],
 

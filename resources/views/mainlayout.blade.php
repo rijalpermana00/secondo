@@ -4,18 +4,19 @@
         @include('layouts.head')
         @include('layouts.jsindex')
     </head>
-    <style type="text/css">
-    </style>
     <body class="no-skin">
         @include('layouts.header')
+        @include('layouts.styleindex')
         <div class="main-container ace-save-state" id="main-container">
             <div class="main-content">
                 <div class="main-content-inner">
-                    @yield('content')                
+                    <div class="page-content-edited">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
-            @include('layouts.footer')
         </div>
+        @include('layouts.footer')
     </body>
 
 </html>

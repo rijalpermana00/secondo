@@ -1,7 +1,79 @@
 @extends('mainlayout')
 
 @section('content') 
-    
+    <style type="text/css">
+        @media only screen and (min-width:321px) and (max-width:480px) { /*phone*/
+            .item img {
+              width: 100%;
+              height: 200px;
+              max-height: 200px;
+              object-fit: fill;
+            }
+            .carousel-inner{
+                max-height: 200px;
+                height: 200px;
+            }
+            .responsive_slider_img {
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                height: 200px;
+            }
+        }
+        @media only screen and (min-width: 480px) and (max-width: 960px) { /*tablet */
+            .item img {
+                width: 100%;
+                max-height: 500px;
+                object-fit: fill;
+                height:500px !important;
+                position:absolute;
+                z-index:1;
+            }
+            .carousel-inner{
+                max-height: 500px;
+                height: 500px;
+            }
+            .responsive_slider_img {
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                height: 500px;
+            }
+        }
+        @media only screen and (min-width: 961px) {
+            .thumbnail{
+                max-height:151px; 
+                display: flex; 
+                overflow:hidden;
+            }
+            .thumbnail img {
+                object-fit: cover;
+            }
+            .boxes-15{
+                text-align: center;
+                display: inline-block;
+            }
+            .carousel-inner{
+                max-height: 500px;
+                height: auto;
+            }
+           .item img {
+              width: 100%;
+              height: 600px;
+              max-height: 600px;
+              object-fit: fill;
+            }
+            .responsive_slider_img {
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                height: 600px;
+            }
+        }
+    </style>
     <div class="row">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -12,22 +84,20 @@
                 <li data-target="#myCarousel" data-slide-to="3"></li>
             </ol>
 
-            <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="/assets/images/Poster/1.jpg" style="width:100%;">
+                    <div class="responsive_slider_img" style="background-image:url('/assets/images/155770.jpg');">                                 
+                    </div>
                 </div>
 
                 <div class="item">
-                    <img src="/assets/images/Poster/2.jpg" style="width:100%;">
+                    <div class="responsive_slider_img" style="background-image:url('/assets/images/155772.jpg');">
+                    </div>
                 </div>
 
                 <div class="item">
-                    <img src="/assets/images/Poster/3.jpg" style="width:100%;">
-                </div>
-
-                <div class="item">
-                    <img src="/assets/images/Poster/4.jpg" style="width:100%;">
+                    <div class="responsive_slider_img" style="background-image:url('/assets/images/th.jpg');">                                 
+                    </div>
                 </div>
             </div>
 
@@ -42,7 +112,7 @@
             </a>
         </div>
     </div>
-    <div class="row" style="background-color: #2E6DA4;">
+    <div class="row customback">
         <div class="container">
             <div class="row text-center">
                 <div class="col-sm-4">
@@ -63,23 +133,15 @@
         </div>
     </div>
     <br>
-    <div class="col-md-8 col-md-offset-2">
-        <div class="row">
+    <div class="row">
+        <div class="container">
             <div class="page-header text-center">
-                <h2><a href="https://www.itb.ac.id/news/index/category/home">Berita</a></h2>
+                <h2><a href="/posts/">Berita</a></h2>
             </div>
-            <div class="col-sm-3 col-md-3 col-xs-12">
-                <div class="boxes-15" style="height:290px;">
-                    <div class="thumbnail">
-                        <img src="/assets/images/gallery/image-1.jpg" class="img-responsive" alt="Mengenalkan Sains dan Profesi pada Anak" style="width:240px; height:150px;">
-                    </div>
-                    <div class="caption">
-                        <h5>
-                            <a href="#">Example</a>
-                        </h5>
-                    </div>
-                </div>
+            <div id="posts">
             </div>
         </div>
     </div>
+    <script src="/js/index.js" type="text/javascript">
+    </script>
 @endsection

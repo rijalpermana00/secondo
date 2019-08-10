@@ -5,7 +5,7 @@
 
     <ul class="nav nav-list">
         <li class="active">
-            <a href="index.html">
+            <a href="/index">
                 <i class="menu-icon fa fa-tachometer"></i>
                 <span class="menu-text"> Dashboard </span>
             </a>
@@ -27,53 +27,79 @@
 
             <ul class="submenu">
                 <li class="">
-                    <a href="typography.html">
+                    <a href="#">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        Member
+                        Staff
                     </a>
 
                     <b class="arrow"></b>
                 </li>
 
                 <li class="">
-                    <a href="elements.html">
+                    <a href="#">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        Parkiran
+                        Siswa
                     </a>
 
                     <b class="arrow"></b>
                 </li>
 
                 <li class="">
-                    <a href="buttons.html">
+                    <a href="/subject/show">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        Kamar
+                        Pelajaran
                     </a>
 
                     <b class="arrow"></b>
+                </li>
+
+                <li class="">
+                    <a href="/inventory">
+                        <i class="menu-icon fa fa-list-alt"></i>
+                        Inventory
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+
+                <li class="">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Unggahan
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="/posts">
+                                <i class="menu-icon fa fa-leaf green"></i>
+                                Berita
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="/image">
+                                <i class="menu-icon fa fa-leaf green"></i>
+                                Gambar
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>
 
         <li class="">
-            <a href="widgets.html">
-                <i class="menu-icon fa fa-list-alt"></i>
-                <span class="menu-text"> Inventory </span>
-            </a>
-
-            <b class="arrow"></b>
-        </li>
-
-        <li class="">
-            <a href="calendar.html">
+            <a href="/about">
                 <i class="menu-icon fa fa-calendar"></i>
 
                 <span class="menu-text">
-                    Calendar
-
-                    <span class="badge badge-transparent tooltip-error" title="2 Important Events">
-                        <i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-                    </span>
+                    About Us
                 </span>
             </a>
 

@@ -1,5 +1,6 @@
-<div id="navbar" class="navbar navbar-default ace-save-state" style="background:#2e6da4">
+<div id="navbar" class="navbar navbar-default ace-save-state customback">
 	<div class="navbar-container ace-save-state" id="navbar-container">
+			
 		<div class="navbar-header pull-left">
 			<a href="/" class="navbar-brand" style="color:#white">
 				<small>
@@ -12,16 +13,16 @@
 			<ul class="nav ace-nav">
 				@guest
 					<li class="nav-item">
-						<a class="nav-link" href="{{ route('login') }}" style="color:white; background-color:#2e6da4;"><b>{{ __('Login') }}</b></a>
+						<a class="nav-link customback" href="{{ route('login') }}" style="color:white; background-color:rgba(45, 52, 54,0.0);"><b>{{ __('Login') }}</b></a>
 					</li>
 					@if (Route::has('register'))
 						<li class="nav-item">
-							<a class="nav-link" href="{{ route('register') }}" style="color:white; background-color:#2e6da4;"><b>{{ __('Register') }}</b></a>
+							<a class="nav-link" href="{{ route('register') }}" style="color:white; background-color:rgba(45, 52, 54,0.0);"><b>{{ __('Register') }}</b></a>
 						</li>
 					@endif
 					@else
 					<li class="light-blue dropdown-modal">
-						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="background-color:#2e6da4;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><b>
+						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="background-color:rgba(45, 52, 54,0.0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><b>
 							{{ Auth::user()->name }} </b><span class="caret"></span>
 						</a>
 
@@ -43,7 +44,7 @@
 							<li class="divider"></li>
 
 							<li>
-								<a href="http://secondo.localhost:90/logout" onclick="event.preventDefault();
+								<a href="/logout" onclick="event.preventDefault();
                                  	document.getElementById('logout-form').submit();" class="dropdown-item">
                                  	<i class="ace-icon fa fa-power-off"></i>
                                     Logout
@@ -60,7 +61,4 @@
 		</div>
 	</div><!-- /.navbar-container -->
 </div>
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="_token" content="{{csrf_token()}}" />
