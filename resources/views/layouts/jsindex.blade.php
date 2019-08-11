@@ -23,6 +23,15 @@
 <script src="/assets/js/buttons.colVis.min.js"></script>
 <script src="/assets/js/dataTables.select.min.js"></script>
 <script src="/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/js/jquery-ui.custom.min.js"></script>
+<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="/assets/js/moment.min.js"></script>
+<script src="/assets/js/fullcalendar.min.js"></script>
+<script src="/assets/js/bootstrap-editable.min.js"></script>
+<script src="/assets/js/ace-editable.min.js"></script>
+<link rel="stylesheet" href="/assets/css/bootstrap-editable.min.css" />
+<link rel="stylesheet" href="/assets/css/jquery-ui.custom.min.css" />
+<link rel="stylesheet" href="/assets/css/fullcalendar.min.css" />
 <link rel="stylesheet" href="/assets/css/bootstrap-datepicker3.min.css" />
 <link rel="stylesheet" href="/assets/css/bootstrap-timepicker.min.css" />
 <link rel="stylesheet" href="/assets/css/daterangepicker.min.css" />

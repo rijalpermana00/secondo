@@ -9,7 +9,7 @@ use JavaScript;
 
 class FilesController extends Controller
 {
-    public function index(){
+    public function show(){
 
 		return view('upload');
     }

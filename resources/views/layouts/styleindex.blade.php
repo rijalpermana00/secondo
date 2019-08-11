@@ -20,7 +20,7 @@
         width:100%;
     }
     .customback{
-    	background-color:rgba(45, 52, 54,0.5);
+    	background-color:rgba(45, 52, 54,1.0);
     }
     .custombackhead{
     	color:white;

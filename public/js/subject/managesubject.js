@@ -44,8 +44,44 @@ function loadtable(){
                     { 'mDataProp': 'credit' },
                     { 'mDataProp': function getdetail(data, type, row) {
                     		var foo;
-                            foo = '<center><a href="#" class="btn btn-success btn-xs" onClick="editsubject(\''+data.id+'\')"><span title="Detail Permintaan"><i class="ace-icon fa fa-pencil bigger-110 icon-only"></i></span></a>&nbsp';
-	                        foo += '<a href="#" class="btn btn-danger btn-xs" onClick="deletesubject(\''+data.id+'\')"><span title="Detail Permintaan"><i class="ace-icon fa fa-remove bigger-110 icon-only"></i></span></a><center>';
+                            foo =  '<div class="hidden-sm hidden-xs action-buttons">'+
+                                        '<a href="#" class="btn btn-success btn-xs" onClick="editsubject(\''+data.id+'\')">'+
+                                            '<span title="Detail Permintaan">'+
+                                                '<i class="ace-icon fa fa-pencil bigger-110 icon-only"></i>'+
+                                            '</span>'+
+                                        '</a>'+
+	                                    '<a href="#" class="btn btn-danger btn-xs" onClick="deletesubject(\''+data.id+'\')">'+
+                                            '<span title="Detail Permintaan">'+
+                                                '<i class="ace-icon fa fa-remove bigger-110 icon-only"></i>'+
+                                            '</span>'+
+                                        '</a>'+
+                                    '</div>'+
+                                    '<div class="hidden-md hidden-lg">'+
+                                        '<div class="inline pos-rel">'+
+                                            '<a href="#" class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">'+
+                                                '<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>'+
+                                            '</a>'+
+                                            
+                                            '<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">'+
+                                                '<li>'+
+                                                    '<a href="#" class="tooltip-success" onClick="editsubject(\''+data.id+'\')">'+
+                                                        '<span title="Detail Permintaan">'+
+                                                            '<i class="ace-icon fa fa-pencil green bigger-110 icon-only"></i>'+
+                                                        '</span>'+
+                                                    '</a>'+
+                                                '</li>'+
+
+                                                '<li>'+
+                                                    '<a href="#" class="tooltip-success" onClick="deletesubject(\''+data.id+'\')">'+
+                                                        '<span title="Detail Permintaan">'+
+                                                            '<i class="ace-icon fa fa-remove red bigger-110 icon-only"></i>'+
+                                                        '</span>'+
+                                                    '</a>'+
+                                                '</li>'+
+                                            '</ul>'+
+                                        '</div>'+
+                                    '</div>';
+
 	                    	return foo;
 	                	}
        				},
@@ -288,10 +324,6 @@ $('[name="formsubject"]').keyup(function(){
 });
 
 $('[name="formsubject"]').change(function(){
-    validation(this);
-});
-
-$('[name="formsubject"]').on("click",function(){
     validation(this);
 });
 

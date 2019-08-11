@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration
+class CreateClassroomTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('classroom', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title',255);
-            $table->string('content',1000);
-            $table->string('link')->nullable();
-            $table->string('creator')->nullable();
-            $table->string('username')->nullable();
+            $table->integer('nis');
+            $table->string('code');
+            $table->integer('level');
+            $table->string('teacher');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('classroom');
     }
 }

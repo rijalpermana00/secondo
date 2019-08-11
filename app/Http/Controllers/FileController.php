@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Subject;
-use App\Helpers\Result;
-use JavaScript;
 
-class SubjectController extends Controller
+class FileController extends Controller
 {
     public function index(){
-    	
-    	return view('subject.listsubject');
+
+    	return view('file');
     }
 
     public function show(){
@@ -74,13 +71,12 @@ class SubjectController extends Controller
     }
 
     public function destroy(Request $request){
-        
         $result     = new Result();
         $subject    = new Subject;
         try{
-
-            $id     = $request->id;
-            $data   = $subject->delete($id);
+            $id        = $request->id;
+            $subject   = Subject::findorfail($id);
+            $data      = $subject->delete();
 
         } catch (\Exception $exc) {
 

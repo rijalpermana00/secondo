@@ -3,14 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Helpers\Result;
 
 class Subject extends Model
 {
     public function submitsubject($param){
 
     	$subject 	= new Subject();
-    	$result 	= new Result();
 
     	if($param['id']){
     		$subject 			= Subject::find($param['id']);
@@ -27,6 +25,18 @@ class Subject extends Model
     		$subject->credit 	= $param['credit'];
     	}
 
-    	$result = $subject->save();
+    	$data = $subject->save();
+
+        return $data;
+    }
+
+    public function deletesubject($id){
+            
+            $subject    = new Subject();
+
+            $subject    = Subject::findorfail($id);
+            $data     = $subject->delete();
+
+            return $data;
     }
 }

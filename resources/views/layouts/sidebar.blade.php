@@ -27,7 +27,7 @@
 
             <ul class="submenu">
                 <li class="">
-                    <a href="#">
+                    <a href="/actor/formstaff">
                         <i class="menu-icon fa fa-caret-right"></i>
                         Staff
                     </a>
@@ -45,7 +45,7 @@
                 </li>
 
                 <li class="">
-                    <a href="/subject/show">
+                    <a href="/subject">
                         <i class="menu-icon fa fa-caret-right"></i>
                         Pelajaran
                     </a>

@@ -47,11 +47,11 @@ class Posts extends Model{
                     list(, $base64)         = explode(',', $base64);
                     $output                 = base64_decode($base64);
 
-                    $location               = 'images/'.$dateY.'/'.$dateM.'/'.$dateD.'/'.$name.'.png';
-                    $upload                 = file_put_contents($location, $output);
+                    $location               = '/images/'.$dateY.'/'.$dateM.'/'.$dateD.'/'.$name.'.png';
+                    $upload                 = file_put_contents(getcwd().$location, $output);
 
                     array_push($locationarr, $location);
-                    $image->setAttribute( 'src', '/'.$location );
+                    $image->setAttribute( 'src', $location );
                 }else{
                     array_push($locationarr, $src);
                     $image->setAttribute('src', $src);

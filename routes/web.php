@@ -29,11 +29,19 @@ Route::get('admin/routes', 'HomeController@admin')->middleware('admin');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/actor', 'ActorController@index')->name('actor.index');
+
+Route::get('/actor/formstaff', 'ActorController@formstaff')->name('actor.formstaff');
+
 Route::get('/upload', 'FilesController@index')->name('upload');
 
 Route::get('posts/{post}/get', 'PostsController@get')->name('posts.get');
 
-Route::get('posts/testget', 'PostsController@testget')->name('posts.testget');
+Route::get('actor/{post}/editstaff', 'ActorController@editstaff')->name('actor.editstaff');
+
+Route::post('actor/get', 'ActorController@get')->name('actor.get');
+
+Route::post('actor/editstaff', 'ActorController@editstaff')->name('actor.editstaff');
 
 Route::post('subject/get', 'SubjectController@get')->name('subject.get');
 
@@ -42,8 +50,6 @@ Route::post('subject/store', 'SubjectController@store')->name('subject.store');
 Route::post('subject/destroy', 'SubjectController@destroy')->name('subject.destroy');
 
 Route::post('posts/testpost', 'PostsController@testpost')->name('posts.testpost');
-
-Route::post('files/store', 'FilesController@store')->name('files.store');
 
 Route::post('posts/store', 'PostsController@store')->name('posts.store');
 
@@ -57,11 +63,15 @@ Route::post('posts/show', 'PostsController@show')->name('posts.show');
 
 Route::post('posts/destroy', 'PostsController@destroy')->name('posts.destroy');
 
+Route::post('actor/store', 'ActorController@store')->name('actor.store');
+
 Route::resource('posts', 'PostsController');
 
 Route::resource('files', 'FilesController');
 
 Route::resource('subject', 'SubjectController');
+
+Route::resource('actor', 'ActorController');
 
 Auth::routes();
 

@@ -1,11 +1,8 @@
 @extends('layout')
 
 @section('content')
-<div class="page-header">
-    <h1>
-        List Pelajaran
-    </h1>
-</div>
+<style>
+</style>
 <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-xs btn-primary pull-right"><i class="fa fa-plus"></i>&nbsp;Add Subject</a>
 <div class="clearfix">
     <div class="pull-right tableTools-container"></div>
@@ -40,7 +37,7 @@
                                 <label class="col-xs-12 col-sm-3 control-label" for="mapel">Pelajaran:</label>
                                 <div class="col-xs-12 col-sm-6">
                                     <span class="block input-icon input-icon-right">
-                                        <input type="text" class="form-control input-lg" id="mapel" name="formsubject" placeholder="Mata Pelajaran">
+                                        <input type="text" class="form-control " id="mapel" name="formsubject" placeholder="Mata Pelajaran">
                                     </span>
                                 </div>
                             </div>
@@ -48,7 +45,7 @@
                                 <label class="col-xs-12 col-sm-3 control-label" for="codemapel">Kode Mapel:</label>
                                 <div class="col-xs-12 col-sm-6">
                                     <span class="block input-icon input-icon-right">
-                                        <input type="text" class="form-control input-lg" id="codemapel" name="formsubject" placeholder="Kode Pelajaran">
+                                        <input type="text" class="form-control " id="codemapel" name="formsubject" placeholder="Kode Pelajaran">
                                     </span>
                                 </div>
                             </div>
@@ -56,7 +53,7 @@
                                 <label class="col-xs-12 col-sm-3 control-label" for="pwd">Tingkat:</label>
                                 <div class="col-xs-12 col-sm-6">
                                     <span class="block input-icon input-icon-right">
-                                        <select id="level" name="formsubject" class="input-lg" style="width: 100%;">
+                                        <select id="level" name="formsubject" class="" style="width: 100%;">
                                             <option value="">Pilih</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -78,7 +75,7 @@
                                 <label class="col-xs-12 col-sm-3 control-label" for="pwd">Jumlah SKS:</label>
                                 <div class="col-xs-12 col-sm-6">
                                     <span class="block input-icon input-icon-right">
-                                        <select id="grade" name="formsubject" class="input-lg" style="width: 100%;">
+                                        <select id="grade" name="formsubject" class="" style="width: 100%;">
                                             <option value="">Pilih</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -101,5 +98,5 @@
     </div>
 </div>
 
-<script src="/js/subject/managesubject.js" type="text/javascript"></script>
+<script src="/js/actor/managesubject.js" type="text/javascript"></script>
 @endsection
